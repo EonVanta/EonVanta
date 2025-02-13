@@ -33,14 +33,14 @@
 
   
 </section>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EonVanta Dashboard</title>
+    <title>EonVanta Trading Dashboard</title>
     <link rel="stylesheet" href="styles/custom.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -49,37 +49,27 @@
         <h2>EonVanta</h2>
         <ul>
             <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Live Charts</a></li>
+            <li><a href="#">Strategies</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#">Logout</a></li>
         </ul>
     </nav>
 
     <!-- Main Dashboard -->
     <div class="dashboard">
         <header>
-            <h1>Welcome to EonVanta</h1>
+            <h1>Trading Dashboard</h1>
         </header>
 
-        <section class="cards">
-            <div class="card">
-                <h3>Users</h3>
-                <p>1,245</p>
-            </div>
-            <div class="card">
-                <h3>Revenue</h3>
-                <p>$23,480</p>
-            </div>
-        </section>
-
         <section class="charts">
-            <canvas id="lineChart"></canvas>
-            <canvas id="barChart"></canvas>
+            <!-- TradingView Chart -->
+            <div class="tradingview-widget-container">
+                <div id="tradingview_chart"></div>
+            </div>
         </section>
     </div>
 
     <script src="scripts/dashboard.js"></script>
-
 </body>
 </html>
 
