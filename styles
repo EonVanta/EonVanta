@@ -1,0 +1,53 @@
+/* Default styles for desktop/tablet */
+.navbar {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  background-color: #333;
+  margin: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 14px 20px;
+  display: block;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+/* Media query for mobile devices (max width of 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar li {
+    margin: 10px 0;
+  }
+
+  .navbar a {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  /* Adjust intro section for smaller screens */
+  #home h2 {
+    font-size: 24px;
+  }
+
+  #home p {
+    font-size: 14px;
+  }
+}
