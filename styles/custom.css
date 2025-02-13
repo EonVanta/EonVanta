@@ -1,18 +1,60 @@
+/* Cosmic Background */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    text-align: center;
+    background-color: black;
+    overflow: hidden;
 }
 
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,30,1) 0%, rgba(0,0,0,1) 100%);
+    z-index: -1;
+}
+
+/* Animated Stars */
+.stars, .stars2, .stars3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/stars.png');
+    animation: moveStars 50s linear infinite;
+}
+
+.stars2 {
+    background: url('../assets/stars2.png');
+    animation-duration: 100s;
+}
+
+.stars3 {
+    background: url('../assets/stars3.png');
+    animation-duration: 150s;
+}
+
+@keyframes moveStars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+/* Navigation Bar */
 .navbar {
-    background-color: #333;
-    padding: 10px;
+    background: rgba(0, 0, 30, 0.8);
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
 .navbar ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin: 0;
     display: flex;
     justify-content: center;
 }
@@ -23,77 +65,55 @@ body {
 
 .navbar a {
     text-decoration: none;
-    color: white;
+    color: cyan;
+    font-size: 18px;
     padding: 10px 15px;
-    display: block;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
 }
 
 .navbar a:hover {
-    background-color: #555;
-    border-radius: 5px;
+    color: lime;
+    text-shadow: 0 0 10px lime;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .navbar ul {
-        flex-direction: column;
-    }
-    .navbar li {
-        margin: 5px 0;
-    }
+/* Hero Section */
+.hero {
+    margin-top: 150px;
 }
 
-/* Default styles for desktop/tablet */
-.navbar {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  padding: 0;
-  background-color: #333;
-  margin: 0;
+.hero h1 {
+    font-size: 48px;
+    text-shadow: 0 0 20px cyan;
+    animation: glowText 2s infinite alternate;
 }
 
-.navbar li {
-  margin: 0 15px;
+.hero p {
+    font-size: 20px;
+    margin-top: 10px;
+    opacity: 0.8;
 }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 14px 20px;
-  display: block;
-  text-align: center;
+@keyframes glowText {
+    from { text-shadow: 0 0 10px cyan; }
+    to { text-shadow: 0 0 30px cyan; }
 }
 
-.navbar a:hover {
-  background-color: #575757;
-  border-radius: 5px;
+/* Futuristic Button */
+.btn {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, cyan, blue);
+    color: white;
+    font-size: 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 0 10px cyan;
+    transition: 0.4s;
 }
 
-/* Media query for mobile devices (max width of 768px) */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .navbar li {
-    margin: 10px 0;
-  }
-
-  .navbar a {
-    font-size: 16px;
-    padding: 12px;
-  }
-
-  /* Adjust intro section for smaller screens */
-  #home h2 {
-    font-size: 24px;
-  }
-
-  #home p {
-    font-size: 14px;
-  }
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px cyan;
 }
-
