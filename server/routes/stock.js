@@ -1,19 +1,16 @@
 // server/routes/stock.js
-const express = require('express');
-const axios = require('axios');
-const router = express.Router();
-
-// Example API route to fetch stock data
 router.get('/:symbol', async (req, res) => {
     const { symbol } = req.params;
+    const apiKey = process.env.API_KEY;
 
     try {
-        // Replace with your actual API endpoint
-        const response = await axios.get(`https://api.example.com/stock/${symbol}`);
-        res.json(response.data);
+        const response = await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`);
+        const data = response.data['Time Series (Daily)'];
+        const latestDate = Object.keys(data)[0];
+        const latestPrice = data[latestDate]['4. close'];
+
+        res.json({ symbol, price: parseFloat(latestPrice) });
     } catch (error) {
         res.status(500).json({ error: 'Failed to fetch stock data' });
     }
 });
-
-module.exports = router;
