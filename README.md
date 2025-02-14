@@ -1,16 +1,22 @@
-## Hi there 👋
+# EonVanta - Trading Analysis App
 
-<!--
-**EonVanta/EonVanta** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+A web app for analyzing stock data and making informed trading decisions.
 
-Here are some ideas to get you started:
+## Features
+- Real-time stock price updates
+- Interactive charts
+- User authentication (coming soon)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Installation
+1. Clone the repository: `git clone https://github.com/your-username/EonVanta.git`
+2. Install dependencies: `npm install`
+3. Start the server: `npm start`
+
+## Usage
+Visit `http://localhost:3000` in your browser to use the app.
+
+## API Keys
+Replace `your_api_key_here` in the `.env` file with your actual API key.
+
+## Contributing
+Feel free to open issues or submit pull requests to improve the app.
