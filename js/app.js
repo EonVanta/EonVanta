@@ -30,3 +30,20 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
         });
 });
+new ApexCharts(chartCanvas, {
+    series: [{
+        name: 'AAPL Price',
+        data: [100, 120, 110, 130, 125]
+    }],
+    chart: {
+        type: 'line',
+        height: 350
+    },
+    title: {
+        text: 'Stock Price Chart',
+        align: 'left'
+    },
+    xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+    }
+}).render();
