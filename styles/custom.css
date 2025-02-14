@@ -177,32 +177,54 @@ header h1 {
 }
 
 
-/* Mobile-friendly Navbar */
+/* General Navbar Styling */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: #000;
+    background: linear-gradient(90deg, #0f0f0f, #1a1a1a);
     color: white;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: cyan;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Desktop Navigation Links */
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
     font-size: 16px;
+    transition: color 0.3s ease-in-out;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-links a:hover {
+    color: cyan;
 }
 
 /* Mobile Menu */
 .menu-toggle {
     display: none;
-    font-size: 24px;
+    font-size: 30px;
     cursor: pointer;
+    color: cyan;
 }
 
 /* Responsive Design */
@@ -210,13 +232,14 @@ nav {
     .nav-links {
         display: none;
         flex-direction: column;
-        background: #000;
+        background: rgba(0, 0, 0, 0.9);
         position: absolute;
-        top: 50px;
+        top: 60px;
         left: 0;
         width: 100%;
         text-align: center;
-        padding: 10px 0;
+        padding: 15px 0;
+        border-top: 2px solid cyan;
     }
     
     .nav-links.active {
@@ -227,3 +250,4 @@ nav {
         display: block;
     }
 }
+
