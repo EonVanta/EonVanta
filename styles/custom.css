@@ -1,8 +1,14 @@
 /* styles/custom.css */
-body {
-    font-family: 'Arial', sans-serif;
+
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(to bottom, #120c24, #0f0c29, #302b63, #24243e);
     color: white;
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -24,7 +30,7 @@ header {
 }
 
 .glowing-logo {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Adjusted for mobile */
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -74,20 +80,26 @@ header {
     }
 }
 
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Space between links */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
 nav a {
     color: #ffffff;
     text-decoration: none;
-    margin: 0 1rem;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #00ffcc; /* Cyan hover effect */
+nav a:hover, nav a:focus {
+    color: #00ffcc; /* Cyan hover/focus effect */
 }
 
 main {
     padding: 1rem;
-    max-width: 800px;
+    max-width: 100%; /* Full width on mobile */
     margin: 0 auto;
 }
 
@@ -110,4 +122,19 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Mobile-first Media Queries */
+@media (min-width: 600px) {
+    .glowing-logo {
+        font-size: 2.5rem; /* Larger logo on larger screens */
+    }
+
+    main {
+        max-width: 800px; /* Constrain width on larger screens */
+    }
+
+    nav {
+        gap: 2rem; /* Increase spacing between links */
+    }
 }
