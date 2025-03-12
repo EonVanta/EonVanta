@@ -20,3 +20,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 });
 fetch(`/api/stock/${stockSymbol}`)
+fetch(`/api/stock/${stockSymbol}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        stockPriceElement.textContent = `Current Price: $${data.price.toFixed(2)}`;
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+        stockPriceElement.textContent = 'Error fetching stock data.';
+    });
