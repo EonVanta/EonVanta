@@ -19,3 +19,6 @@ app.use('/api/stock', stockRoutes);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+const cors = require('cors'); // Install with `npm install cors`
+
+app.use(cors());
