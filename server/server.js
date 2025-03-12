@@ -1,31 +1,31 @@
+// server/routes/stock.js
 const express = require('express');
-const dotenv = require('dotenv');
-const stockRoutes = require('./routes/stock');
+const axios = require('axios');
+const router = express.Router();
 
-dotenv.config();
+router.get('/:symbol', async (req, res) => {
+    const { symbol } = req.params;
+    const apiKey = process.env.API_KEY;
 
-const app = express();
-app.use(express.json());
+    try {
+        console.log(`Fetching data for ${symbol} using API key: ${apiKey}`);
+        const response = await axios.get(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`);
+        console.log('API Response:', response.data);
 
-// Serve static files (frontend)
-app.use(express.static('../public'));
+        const data = response.data['Time Series (Daily)'];
 
-// Define API routes
-app.use('/api/stock', stockRoutes);
+        if (!data) {
+            return res.status(404).json({ error: 'Stock symbol not found' });
+        }
 
-// Example login route
-app.post('/api/login', (req, res) => {
-    const { username, password } = req.body;
+        const latestDate = Object.keys(data)[0];
+        const latestPrice = parseFloat(data[latestDate]['4. close']);
 
-    if (username === 'admin' && password === 'password') {
-        return res.json({ success: true, message: 'Login successful' });
+        res.json({ symbol, price: latestPrice });
+    } catch (error) {
+        console.error('API Error:', error.message, error.response?.data);
+        res.status(500).json({ error: 'Failed to fetch stock data' });
     }
-
-    res.status(401).json({ success: false, message: 'Invalid credentials' });
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+module.exports = router;
