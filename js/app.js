@@ -19,3 +19,4 @@ document.addEventListener('DOMContentLoaded', function () {
             stockPriceElement.textContent = 'Error fetching stock data.';
         });
 });
+fetch(`/api/stock/${stockSymbol}`)
